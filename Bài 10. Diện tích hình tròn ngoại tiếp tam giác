@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+class point{
+private:
+    double x, y;
+public:
+    point(double x, double y){
+        this->x = x;
+        this->y = y;
+    }
+    point(point &p){
+        this->x = p.x;
+        this->y = p.y;
+    }
+
+    double Radii(point A, point B){
+        double a = sqrt((this->x - A.x)*(this->x - A.x) + (this->y - A.y)*(this->y - A.y));
+        double b = sqrt((this->x - B.x)*(this->x - B.x) + (this->y - B.y)*(this->y - B.y));
+        double c = sqrt((B.x - A.x)*(B.x - A.x) + (B.y - A.y)*(B.y - A.y));
+        double p = (a+b+c)/2;
+        if(a+b<=c || a+c<=b || b+c<=a) return -1;
+        else {
+            double S = sqrt(p*(p-a)*(p-b)*(p-c));
+            return a*b*c/(4*S);
+        }
+    }
+    
+};
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int t; cin>>t;
+    while(t--){
+        double x1, y1, x2, y2, x3, y3;
+        cin>>x1>>y1>>x2>>y2>>x3>>y3;
+        point A(x1, y1), B(x2, y2), C(x3, y3);
+        double r = A.Radii(B, C);
+        if(r == -1) cout << "INVALID" <<endl;
+        else cout << fixed << setprecision(3) << r * r * 3.14 << endl;
+    }
+    return 0;
+}
