@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+class PhanSo{
+private:
+    ll tu, mau;
+public:
+    void nhap(){
+        cin >> this->tu >> this->mau;
+    }
+
+    void rutgon(){
+        ll ucln = __gcd(this->tu, this->mau);
+        this->tu /= ucln;
+        this->mau /= ucln;
+    }
+
+    void in(){
+        cout << this->tu << '/' << this->mau << endl;
+    }
+};
+
+int main(){
+    PhanSo x;
+    x.nhap();
+    x.rutgon();
+    x.in();
+}
