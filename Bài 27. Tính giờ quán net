@@ -1,0 +1,47 @@
+#include "bits/stdc++.h"
+
+using namespace std;
+
+class gamer{
+    private:
+       string user,pass,ten,vao,ra;
+    public:
+       void nhap(){
+           getline(cin,user);
+           getline(cin,pass);
+           getline(cin,ten);
+           cin>>vao>>ra;
+       }
+       friend int thoigian(gamer);
+       void in(){
+           int vao1=stoi(vao.substr(0,2))*60+stoi((vao.substr(3,2)));
+           int ra1=stoi(ra.substr(0,2))*60+stoi((ra.substr(3,2)));
+           int gio=(ra1-vao1)/60;
+           int phut=(ra1-vao1)-gio*60;
+           cout<<user<<" "<<pass<<" "<<ten<<" "<<gio<<" "<<"gio"<<" "<<phut<<" "<<"phut"<<endl;
+       }
+       string getuser(){
+           return user;
+       }
+};
+int thoigian(gamer a){
+    int vao1=stoi(a.vao.substr(0,2))*60+stoi((a.vao.substr(3,2)));
+    int ra1=stoi(a.ra.substr(0,2))*60+stoi((a.ra.substr(3,2)));
+    return ra1-vao1;
+}
+bool comp(gamer a, gamer b){
+    if(thoigian(a)!=thoigian(b)) return thoigian(a)>thoigian(b);
+    return a.getuser()<b.getuser();
+}
+int main(){
+    int n; cin>>n;
+    gamer g[n];
+    for(int i=0;i<n;i++){
+        cin.ignore();
+        g[i].nhap();
+    }
+    sort(g,g+n,comp);
+    for(gamer x:g){
+        x.in();
+    }
+}
