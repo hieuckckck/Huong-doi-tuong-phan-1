@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+class nhanvien{
+    private:
+        string ma, ten, gt, ns, dc, mst, nk;
+    public:
+        void nhap(){
+            this->ma="00001";
+            getline(cin, this->ten);
+            getline(cin, this->gt);
+            getline(cin, this->ns);
+            getline(cin, this->dc);
+            getline(cin, this->mst);
+            getline(cin, this->nk);
+        }
+        void in(){
+            cout<< ma<<' '<<ten<<' '<<gt<<' '<< ns<<' '<< dc<<' '<<mst<<' '<<nk;
+        }
+};
+
+int main(){
+    nhanvien n;
+    n.nhap();
+    n.in();
+}
