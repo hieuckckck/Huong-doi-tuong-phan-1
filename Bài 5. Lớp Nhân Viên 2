@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+class nv{
+    private:
+        string ma, ten, gt, ns, dc, mst, nk;
+    public:
+        void nhap(){
+            this->ma= "00001";
+            getline(cin, this->ten);
+            getline(cin, this->gt);
+            getline(cin, this->ns);
+            getline(cin, this->dc);
+            getline(cin, this->mst);
+            getline(cin, this->nk);
+        }
+        void in(){
+            cout<< ma<<' '<< ten<<' '<< gt<<' '<< ns<<' '<< dc<<' '<<mst<<' '<< nk;
+        }
+        void chuanhoa(){
+            if(ns[1]=='/') ns= "0"+ns;
+            if(ns[4]=='/') ns.insert(3, "0");
+            if(nk[1]=='/') nk="0"+ nk;
+            if(nk[4]=='/') nk.insert(3, "0");
+            stringstream ss(ten);
+            string res="", tmp;
+            while(ss>> tmp){
+                res+= toupper(tmp[0]);
+                for(int i=1; i< tmp.size(); i++){
+                    res+= tolower(tmp[i]);
+                }
+                res+=' ';
+            }
+            res.pop_back();
+            ten=res;
+        }
+};
+
+int main(){
+    nv a;
+    a.nhap();
+    a.chuanhoa();
+    a.in();
+}
