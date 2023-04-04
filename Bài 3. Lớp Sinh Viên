@@ -1,0 +1,38 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+
+class sinhvien{
+    private:string ma,ten,lop,ns;
+    double gpa;
+    public:
+    void nhap(){
+        this->ma="SV001";
+        getline(cin,this->ten);
+        getline(cin,this->lop);
+        getline(cin,this->ns);
+        cin>>this->gpa;
+    }
+    void in(){
+        cout<<ma<<" "<<ten<<" "<<lop<<" "<<ns<<" "<<fixed<<setprecision(1)<<gpa;
+    }
+    void chuanhoa(){
+        if(ns[1]=='/'){
+            ns="0"+ns;
+        }
+        if(ns[4]=='/'){
+            ns.insert(3,"0");
+        }
+    }
+};
+int main() {
+    sinhvien s;
+    s.nhap();
+    s.chuanhoa();
+    s.in();
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
