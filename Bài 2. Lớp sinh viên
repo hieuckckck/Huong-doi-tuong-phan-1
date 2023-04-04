@@ -1,0 +1,27 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+
+class sinhvien{
+    private:string ten,ns;
+    double m1,m2,m3;
+    public:
+    void nhap(){
+        getline(cin,this->ten);
+        getline(cin,this->ns);
+        cin>>this->m1>>this->m2>>this->m3;
+    }
+    void in(){
+        cout<<ten<<" "<<ns<<" "<<fixed<<setprecision(1)<<m1+m2+m3;
+    }
+};
+int main() {
+    sinhvien s;
+    s.nhap();
+    s.in();
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
