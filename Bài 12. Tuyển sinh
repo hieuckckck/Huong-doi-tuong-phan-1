@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+class SinhVien{
+private:
+    string ma, ten;
+    double toan, ly, hoa;
+
+public:
+    SinhVien(string ma, string ten, double toan, double ly, double hoa){
+        this->ma = ma;
+        this->ten = ten;
+        this->toan = toan;
+        this->ly = ly;
+        this->hoa = hoa;
+    }
+    void in(){
+        int kv = ma[2] - '0';
+        double tongdiem = toan + ly + hoa;
+        if(kv == 1) tongdiem += 0.5;
+        else if(kv == 2) tongdiem += 1.0;
+        else tongdiem += 2.5;
+        cout << ma << ' ' << ten << ' ' << kv << ' ';
+        if(tongdiem == (int)tongdiem)
+            cout << (int) tongdiem << ' ';
+        else cout << fixed << setprecision(1) << tongdiem << ' ';
+        if(tongdiem >= 24) cout << "TRUNG TUYEN\n";
+        else cout << "TRUOT\n";
+    }
+};
+
+
+int main(){
+    string ma, ten;
+    getline(cin, ma);
+    getline(cin, ten);
+    double t, l, h; cin >> t >> l >> h;
+    SinhVien s(ma, ten, t, l, h);
+    s.in();
+}
