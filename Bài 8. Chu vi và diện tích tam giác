@@ -1,1 +1,49 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+class Point{
+    private: double x, y;
+    public: 
+        Point(double x, double y){
+            this->x = x;
+            this->y = y;
+        }
+        Point(Point &p){
+            this->x = p.x;
+            this->y =p.y;
+        }
+        double getX(){
+            return this->x;
+        }
+        double getY(){
+            return this->y;
+        }
+        double distance(Point B){
+            double D = (this->x - B.x)*(this->x - B.x) + (this->y - B.y)*(this->y - B.y);
+            return sqrt(D);
+        }
+        double distance(Point B, Point C){
+            double D = (C.x - B.x)*(C.x - B.x) + (C.y - B.y)*(C.y - B.y);
+            return sqrt(D);
+        }
+};
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int t; cin>>t;
+    while(t--){
+        double x1, y1, x2, y2, x3, y3;
+        cin>>x1>>y1>>x2>>y2>>x3>>y3;
+        Point A(x1, y1), B(x2, y2), C(x3, y3);
+        double a = A.distance(B);
+        double b = C.distance(B);
+        double c = A.distance(C);
+        if((a+b) <= c || (a+c) <= b || (b+c) <=a) cout <<"INVALID" <<endl;
+        else {
+            double p = (a+b+c)/2;
+            cout<< fixed << setprecision(3) << 2*p <<" ";
+            cout<< fixed << setprecision(3) << sqrt(p*(p-a)*(p-b)*(p-c)) <<endl;
+        }
+    }
+    return 0;
+}
